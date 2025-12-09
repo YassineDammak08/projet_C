@@ -26,21 +26,7 @@ if (f == NULL) {
     perror("Erreur ouverture fichier facture");
     return -1;
 };
-double calculer_duree_heures(const Heure *debut, const Heure *fin) {
-    if (debut == NULL || fin == NULL) {
-        return -1;
-    }
 
-    int md = heure_en_minutes(debut);
-    int mf = heure_en_minutes(fin);
-    int diff = mf - md;
-
-    if (diff <= 0) {
-        return -1;
-    };
-
-    return diff / 60.0;
-};
 
 
 fprintf(f, "================ FACTURE =================\n\n");
