@@ -298,68 +298,67 @@ int charger_reservations(ListeReservations *lr, const char *chemin_fichier) {
         char *token;
         char *rest = ligne;
 
-        /* id */
+       
         token = strtok(rest, ";");
         if (token == NULL) continue;
         r.id = atoi(token);
 
-        /* nom_client */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         strncpy(r.nom_client, token, MAX_NOM_CLIENT - 1);
         r.nom_client[MAX_NOM_CLIENT - 1] = '\0';
 
-        /* salle_id */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.salle_id = atoi(token);
 
-        /* jour */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.date.jour = atoi(token);
 
-        /* mois */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.date.mois = atoi(token);
 
-        /* annee */
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.date.annee = atoi(token);
 
-        /* h_debut */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.heure_debut.heure = atoi(token);
 
-        /* min_debut */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.heure_debut.minute = atoi(token);
 
-        /* h_fin */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.heure_fin.heure = atoi(token);
 
-        /* min_fin */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.heure_fin.minute = atoi(token);
 
-        /* nb_personnes */
+       
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.nombre_personnes = atoi(token);
 
-        /* tarif_total */
+        
         token = strtok(NULL, ";");
         if (token == NULL) continue;
         r.tarif_total = atof(token);
 
-        /* statut (dernier champ) */
+        
         token = strtok(NULL, ";\n");
         if (token == NULL) {
             r.statut = RES_STATUS_CONFIRME;
