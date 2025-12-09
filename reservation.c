@@ -48,11 +48,11 @@ int verifier_disponibilite(const ListeReservations *lr,
     for (int i = 0; i < lr->taille; i++) {
         const Reservation *r = &lr->data[i];
 
-        /* Ignorer les réservations annulées ou d'une autre salle */
+       
         if (r->salle_id != salle_id) continue;
         if (r->statut == RES_STATUS_ANNULE) continue;
 
-        /* Même date ? */
+       
         if (comparer_date(&r->date, &date) != 0) {
             continue;
         }
@@ -60,13 +60,13 @@ int verifier_disponibilite(const ListeReservations *lr,
         int rd = heure_en_minutes(&r->heure_debut);
         int rf = heure_en_minutes(&r->heure_fin);
 
-        /* Test de chevauchement: [debut, fin) et [rd, rf) se chevauchent si: */
+        
         if (debut_min < rf && rd < fin_min) {
-            return 0; /* indisponible */
+            return 0; 
         }
     }
 
-    return 1; /* disponible */
+    return 1; 
 }
 
 double calculer_tarif_reservation(const Salle *salle,
@@ -103,34 +103,34 @@ int ajouter_reservation(ListeReservations *lr,
         return -1;
     }
 
-    /* Vérifier que la salle existe */
+  
     Salle *salle = trouver_salle_par_id((ListeSalles *)ls, salle_id);
     if (salle == NULL) {
         printf("Salle avec ID %d introuvable.\n", salle_id);
         return -1;
     }
 
-    /* Vérifier que les heures sont cohérentes */
+    
     double duree = calculer_duree_heures(&h_debut, &h_fin);
     if (duree <= 0.0) {
         printf("Plage horaire invalide (heure de fin <= heure de debut).\n");
         return -1;
     }
 
-    /* Vérifier capacité */
+    
     if (!verifier_capacite(salle, nb_personnes)) {
         printf("Capacite depassee pour la salle '%s' (max %d personnes).\n",
                salle->nom, salle->capacite);
         return -1;
     }
 
-    /* Vérifier disponibilité (chevauchements) */
+    
     if (!verifier_disponibilite(lr, salle_id, date, h_debut, h_fin)) {
         printf("La salle '%s' n'est pas disponible sur ce cr\u00e9neau.\n", salle->nom);
         return -1;
     }
 
-    /* Calcul du tarif */
+    
     double tarif = calculer_tarif_reservation(salle, h_debut, h_fin);
     if (tarif < 0.0) {
         printf("Erreur lors du calcul du tarif.\n");
@@ -236,7 +236,7 @@ void rechercher_reservations_par_client(const ListeReservations *lr,
     }
 }
 
-/* Sauvegarde des reservations en texte */
+
 int sauvegarder_reservations(const ListeReservations *lr, const char *chemin_fichier) {
     if (lr == NULL || chemin_fichier == NULL) {
         return -1;
@@ -272,7 +272,7 @@ int sauvegarder_reservations(const ListeReservations *lr, const char *chemin_fic
     return 0;
 }
 
-/* Chargement des reservations en texte */
+
 int charger_reservations(ListeReservations *lr, const char *chemin_fichier) {
     if (lr == NULL || chemin_fichier == NULL) {
         return -1;
