@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "facture.h"
+#include "utils.h"
 
 int generer_facture(const Reservation *r,
                     const Salle *salle,
