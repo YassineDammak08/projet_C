@@ -1,0 +1,19 @@
+================ FACTURE =================
+
+Reservation ID : 15
+Client         : Mallory
+
+Salle          : Salle C
+Capacite       : 5 personnes
+Tarif horaire  : 15.00
+
+Date           : 12/02/2025
+Heure debut    : 15:00
+Heure fin      : 17:30
+Duree          : 2.50 heure(s)
+Nombre pers.   : 5
+
+Montant total  : 37.50
+==========================================
+
+

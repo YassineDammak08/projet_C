@@ -1,0 +1,17 @@
+================ FACTURE =================
+
+Reservation ID : 2
+Client         : Bob
+
+Salle          : Salle A
+Capacite       : 10 personnes
+Tarif horaire  : 30.00
+
+Date           : 12/01/2025
+Heure debut    : 14:00
+Heure fin      : 16:30
+Duree          : 2.50 heure(s)
+Nombre pers.   : 8
+
+Montant total  : 75.00
+==========================================
